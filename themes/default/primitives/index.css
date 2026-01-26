@@ -1,0 +1,7 @@
+/**
+ * Primitives Entry Point
+ * Imports all primitive design tokens (base values)
+ */
+
+@import "./colors.css";
+@import "./sizes.css";

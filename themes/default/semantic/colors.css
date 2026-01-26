@@ -1,0 +1,286 @@
+/**
+ * Tokens Semânticos
+ * 
+ * Cores semânticas que referenciam as primitivas.
+ * Alterar uma primitiva atualiza automaticamente todas as semânticas.
+ * 
+ * Categorias:
+ * - Backgrounds (bg-*)
+ * - Foregrounds/Text (fg-*)
+ * - Borders (border-*)
+ * - Rings (ring-*)
+ */
+
+:root {
+   /* ============================================================
+     SEMANTIC BACKGROUNDS
+     ============================================================ */
+   --color-bg-canvas: var(--color-neutral-0);
+   --color-bg-background: var(--color-neutral-0);
+   --color-bg-muted: var(--color-neutral-100);
+   --color-bg-fill: var(--color-neutral-600);
+   --color-bg-inverse: var(--color-neutral-950);
+   --color-bg-surface: var(--color-neutral-0);
+   --color-bg-subtle: var(--color-neutral-50);
+   --color-bg-elevated: var(--color-neutral-300);
+
+   /* Primary */
+   --color-bg-primary: var(--color-brand-600);
+   --color-bg-primary-hover: var(--color-brand-700);
+   --color-bg-primary-subtle: var(--color-brand-50);
+   --color-bg-primary-subtle-hover: var(--color-brand-100);
+
+   /* Secondary */
+   --color-bg-secondary: var(--color-neutral-0);
+   --color-bg-secondary-hover: var(--color-neutral-100);
+   --color-bg-secondary-subtle: var(--color-neutral-0);
+   --color-bg-secondary-subtle-hover: var(--color-neutral-100);
+
+   /* Success */
+   --color-bg-success: var(--color-success-600);
+   --color-bg-success-hover: var(--color-success-700);
+   --color-bg-success-subtle: var(--color-success-50);
+   --color-bg-success-muted: var(--color-success-100);
+   --color-bg-success-muted-hover: var(--color-success-200);
+
+   /* Warning */
+   --color-bg-warning: var(--color-warning-600);
+   --color-bg-warning-hover: var(--color-warning-700);
+   --color-bg-warning-subtle: var(--color-warning-50);
+   --color-bg-warning-subtle-hover: var(--color-warning-100);
+   --color-bg-warning-muted: var(--color-warning-100);
+   --color-bg-warning-muted-hover: var(--color-warning-200);
+
+   /* Critical */
+   --color-bg-critical: var(--color-critical-500);
+   --color-bg-critical-hover: var(--color-critical-600);
+   --color-bg-critical-subtle: var(--color-critical-50);
+   --color-bg-critical-subtle-hover: var(--color-critical-100);
+   --color-bg-critical-muted: var(--color-critical-100);
+   --color-bg-critical-muted-hover: var(--color-critical-200);
+
+   /* Info */
+   --color-bg-info: var(--color-info-600);
+   --color-bg-info-hover: var(--color-info-700);
+   --color-bg-info-subtle: var(--color-info-50);
+   --color-bg-info-subtle-hover: var(--color-info-100);
+   --color-bg-info-muted: var(--color-info-100);
+   --color-bg-info-muted-hover: var(--color-info-200);
+
+   /* ============================================================
+     SEMANTIC FOREGROUNDS (TEXT)
+     ============================================================ */
+   --color-fg-main: var(--color-neutral-600);
+   --color-fg-subtle: var(--color-neutral-300);
+   --color-fg-muted: var(--color-neutral-500);
+   --color-fg-moderate: var(--color-neutral-800);
+   --color-fg-strong: var(--color-neutral-950);
+
+   /* Interactive */
+   --color-fg-primary: var(--color-brand-600);
+   --color-fg-secondary: var(--color-neutral-600);
+   --color-fg-tertiary: var(--color-neutral-600);
+   --color-fg-interactive: var(--color-brand-600);
+
+   /* On Colors */
+   --color-fg-on-primary: var(--color-neutral-0);
+   --color-fg-on-secondary: var(--color-neutral-600);
+   --color-fg-on-tertiary: var(--color-neutral-600);
+   --color-fg-on-inverted: var(--color-neutral-0);
+   --color-fg-muted-on-inverted: var(--color-neutral-300);
+   --color-fg-on-dark: var(--color-neutral-0);
+
+   /* Status */
+   --color-fg-success: var(--color-success-600);
+   --color-fg-success-muted: var(--color-success-300);
+   --color-fg-success-strong: var(--color-success-950);
+   --color-fg-on-success: var(--color-neutral-0);
+
+   --color-fg-warning: var(--color-warning-600);
+   --color-fg-warning-muted: var(--color-warning-400);
+   --color-fg-warning-strong: var(--color-warning-950);
+   --color-fg-on-warning: var(--color-neutral-0);
+
+   --color-fg-critical: var(--color-critical-500);
+   --color-fg-critical-muted: var(--color-critical-400);
+   --color-fg-critical-strong: var(--color-critical-950);
+   --color-fg-on-critical: var(--color-neutral-0);
+
+   --color-fg-info: var(--color-info-600);
+   --color-fg-info-muted: var(--color-info-300);
+   --color-fg-on-info: var(--color-neutral-0);
+
+   /* ============================================================
+     SEMANTIC BORDERS
+     ============================================================ */
+   --color-border: var(--color-neutral-200);
+   --color-border-muted: var(--color-neutral-100);
+   --color-border-strong: var(--color-neutral-600);
+   --color-border-moderate: var(--color-neutral-300);
+   --color-border-inverted: var(--color-neutral-950);
+
+   /* Status Borders */
+   --color-border-primary: var(--color-brand-600);
+   --color-border-primary-muted: var(--color-brand-200);
+
+   --color-border-secondary: var(--color-neutral-200);
+
+   --color-border-success: var(--color-success-600);
+   --color-border-success-muted: var(--color-success-200);
+
+   --color-border-warning: var(--color-warning-600);
+   --color-border-warning-muted: var(--color-warning-200);
+
+   --color-border-critical: var(--color-critical-600);
+   --color-border-critical-muted: var(--color-critical-200);
+
+   --color-border-info: var(--color-info-600);
+   --color-border-info-muted: var(--color-info-200);
+
+   /* ============================================================
+     SEMANTIC RINGS (FOCUS STATES)
+     ============================================================ */
+   --color-ring-primary: oklch(from var(--color-brand-600) l c h / 15%);
+   --color-ring-secondary: oklch(from var(--color-neutral-950) l c h / 15%);
+   --color-ring-success: oklch(from var(--color-success-600) l c h / 15%);
+   --color-ring-warning: oklch(from var(--color-warning-600) l c h / 15%);
+   --color-ring-critical: oklch(from var(--color-critical-500) l c h / 15%);
+   --color-ring-info: oklch(from var(--color-info-600) l c h / 15%);
+}
+
+.dark {
+   /* ============================================================
+       DARK MODE - SEMANTIC BACKGROUNDS
+       ============================================================ */
+   --color-bg-canvas: var(--color-neutral-950);
+   --color-bg-background: var(--color-neutral-950);
+   --color-bg-muted: var(--color-neutral-900);
+   --color-bg-fill: var(--color-neutral-500);
+   --color-bg-inverse: var(--color-neutral-0);
+   --color-bg-surface: var(--color-neutral-950);
+   --color-bg-subtle: var(--color-neutral-900);
+   --color-bg-elevated: var(--color-neutral-800);
+
+   /* Primary */
+   --color-bg-primary: var(--color-brand-500);
+   --color-bg-primary-hover: var(--color-brand-400);
+   --color-bg-primary-subtle: var(--color-brand-950);
+   --color-bg-primary-subtle-hover: var(--color-brand-900);
+
+   /* Secondary */
+   --color-bg-secondary: var(--color-neutral-800);
+   --color-bg-secondary-hover: var(--color-neutral-700);
+   --color-bg-secondary-subtle: var(--color-neutral-900);
+   --color-bg-secondary-subtle-hover: var(--color-neutral-800);
+
+   /* Success */
+   --color-bg-success: var(--color-success-500);
+   --color-bg-success-hover: var(--color-success-400);
+   --color-bg-success-subtle: var(--color-success-950);
+   --color-bg-success-muted: var(--color-success-900);
+   --color-bg-success-muted-hover: var(--color-success-800);
+
+   /* Warning */
+   --color-bg-warning: var(--color-warning-500);
+   --color-bg-warning-hover: var(--color-warning-400);
+   --color-bg-warning-subtle: var(--color-warning-950);
+   --color-bg-warning-subtle-hover: var(--color-warning-900);
+   --color-bg-warning-muted: var(--color-warning-900);
+   --color-bg-warning-muted-hover: var(--color-warning-800);
+
+   /* Critical */
+   --color-bg-critical: var(--color-critical-500);
+   --color-bg-critical-hover: var(--color-critical-400);
+   --color-bg-critical-subtle: var(--color-critical-950);
+   --color-bg-critical-subtle-hover: var(--color-critical-900);
+   --color-bg-critical-muted: var(--color-critical-900);
+   --color-bg-critical-muted-hover: var(--color-critical-800);
+
+   /* Info */
+   --color-bg-info: var(--color-info-500);
+   --color-bg-info-hover: var(--color-info-400);
+   --color-bg-info-subtle: var(--color-info-950);
+   --color-bg-info-subtle-hover: var(--color-info-900);
+   --color-bg-info-muted: var(--color-info-900);
+   --color-bg-info-muted-hover: var(--color-info-800);
+
+   /* ============================================================
+       DARK MODE - SEMANTIC FOREGROUNDS (TEXT)
+       ============================================================ */
+   --color-fg-main: var(--color-neutral-400);
+   --color-fg-subtle: var(--color-neutral-500);
+   --color-fg-muted: var(--color-neutral-400);
+   --color-fg-moderate: var(--color-neutral-100);
+   --color-fg-strong: var(--color-neutral-0);
+
+   /* Interactive */
+   --color-fg-primary: var(--color-brand-400);
+   --color-fg-secondary: var(--color-neutral-300);
+   --color-fg-tertiary: var(--color-neutral-400);
+   --color-fg-interactive: var(--color-brand-400);
+
+   /* On Colors */
+   --color-fg-on-primary: var(--color-neutral-950);
+   --color-fg-on-secondary: var(--color-neutral-100);
+   --color-fg-on-tertiary: var(--color-neutral-100);
+   --color-fg-on-inverted: var(--color-neutral-950);
+   --color-fg-muted-on-inverted: var(--color-neutral-700);
+   --color-fg-on-dark: var(--color-neutral-0);
+
+   /* Status */
+   --color-fg-success: var(--color-success-400);
+   --color-fg-success-muted: var(--color-success-600);
+   --color-fg-success-strong: var(--color-success-200);
+   --color-fg-on-success: var(--color-neutral-950);
+
+   --color-fg-warning: var(--color-warning-400);
+   --color-fg-warning-muted: var(--color-warning-600);
+   --color-fg-warning-strong: var(--color-warning-200);
+   --color-fg-on-warning: var(--color-neutral-950);
+
+   --color-fg-critical: var(--color-critical-400);
+   --color-fg-critical-muted: var(--color-critical-600);
+   --color-fg-critical-strong: var(--color-critical-200);
+   --color-fg-on-critical: var(--color-neutral-950);
+
+   --color-fg-info: var(--color-info-400);
+   --color-fg-info-muted: var(--color-info-600);
+   --color-fg-on-info: var(--color-neutral-950);
+
+   /* ============================================================
+       DARK MODE - SEMANTIC BORDERS
+       ============================================================ */
+   --color-border: var(--color-neutral-800);
+   --color-border-muted: var(--color-neutral-900);
+   --color-border-strong: var(--color-neutral-600);
+   --color-border-moderate: var(--color-neutral-700);
+   --color-border-inverted: var(--color-neutral-0);
+
+   /* Status Borders */
+   --color-border-primary: var(--color-brand-500);
+   --color-border-primary-muted: var(--color-brand-800);
+
+   --color-border-secondary: var(--color-neutral-700);
+
+   --color-border-success: var(--color-success-500);
+   --color-border-success-muted: var(--color-success-800);
+
+   --color-border-warning: var(--color-warning-500);
+   --color-border-warning-muted: var(--color-warning-800);
+
+   --color-border-critical: var(--color-critical-500);
+   --color-border-critical-muted: var(--color-critical-800);
+
+   --color-border-info: var(--color-info-500);
+   --color-border-info-muted: var(--color-info-800);
+
+   /* ============================================================
+       DARK MODE - SEMANTIC RINGS (FOCUS STATES)
+       ============================================================ */
+   --color-ring-primary: oklch(from var(--color-brand-400) l c h / 25%);
+   --color-ring-secondary: oklch(from var(--color-neutral-0) l c h / 15%);
+   --color-ring-success: oklch(from var(--color-success-400) l c h / 25%);
+   --color-ring-warning: oklch(from var(--color-warning-400) l c h / 25%);
+   --color-ring-critical: oklch(from var(--color-critical-400) l c h / 25%);
+   --color-ring-info: oklch(from var(--color-info-400) l c h / 25%);
+}

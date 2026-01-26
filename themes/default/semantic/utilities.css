@@ -1,0 +1,51 @@
+/**
+ * Utility Classes
+ * Migrated from styles.css
+ * 
+ * Structure:
+ * - Shadow utilities
+ * - Ring utilities
+ */
+
+/* ============================================================
+   BOX SHADOWS - Light Mode
+   ============================================================ */
+.shadows-boxshadow-xs {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.02);
+}
+
+.shadows-boxshadow-sm {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.shadows-boxshadow-base {
+    box-shadow: 0px 1px 1px rgba(156, 163, 175, 0.1);
+}
+
+.shadows-boxshadow-xl {
+    box-shadow: 0px 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0px 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================================
+   BOX SHADOWS - Dark Mode
+   In dark mode, shadows need higher opacity and lighter colors
+   to create visible depth against dark backgrounds
+   ============================================================ */
+.dark .shadows-boxshadow-xs {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.dark .shadows-boxshadow-sm {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.dark .shadows-boxshadow-base {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3),
+        0px 0px 0px 1px rgba(255, 255, 255, 0.05);
+}
+
+.dark .shadows-boxshadow-xl {
+    box-shadow: 0px 20px 25px -5px rgba(0, 0, 0, 0.5),
+        0px 10px 10px -5px rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,114 @@
+/**
+ * Cores Primitivas - Base do Design System
+ * 
+ * Todas as cores estão em formato OKLCH para melhor interpolação.
+ * 
+ * Estrutura:
+ * - Base colors (black, white, transparent)
+ * - Brand scale (verde principal, 50-950)
+ * - Neutral scale (cinza, 0-950)
+ * - Success scale (verde feedback, 50-950)
+ * - Warning scale (laranja, 50-950)
+ * - Critical scale (vermelho, 50-950)
+ * - Info scale (azul, 50-950)
+ */
+
+:root {
+    /* ============================================================
+     BASE COLORS
+     ============================================================ */
+    --color-static-black: oklch(0 0 0);
+    --color-static-white: oklch(1 0 0);
+    --color-transparent: oklch(1 0 0 / 0);
+
+    /* ============================================================
+     BRAND SCALE (Verde Principal)
+     ============================================================ */
+    --color-brand-50: oklch(0.97 0.05 155);
+    --color-brand-100: oklch(0.94 0.08 155);
+    --color-brand-200: oklch(0.89 0.12 155);
+    --color-brand-300: oklch(0.82 0.15 155);
+    --color-brand-400: oklch(0.74 0.17 155);
+    --color-brand-500: oklch(0.67 0.18 155);
+    --color-brand-600: oklch(0.62 0.18 155);
+    --color-brand-700: oklch(0.52 0.15 155);
+    --color-brand-800: oklch(0.42 0.12 155);
+    --color-brand-900: oklch(0.31 0.08 155);
+    --color-brand-950: oklch(0.18 0.04 155);
+
+    /* ============================================================
+     NEUTRAL SCALE (Cinza)
+     ============================================================ */
+    --color-neutral-0: oklch(1 0 0);
+    --color-neutral-50: oklch(0.9846 0.0017 247.84);
+    --color-neutral-100: oklch(0.967 0.0029 264.54);
+    --color-neutral-200: oklch(0.9368 0.0029 264.54);
+    --color-neutral-300: oklch(0.8549 0.0078 241.68);
+    --color-neutral-400: oklch(0.7648 0.0145 258.35);
+    --color-neutral-500: oklch(0.7137 0.0192 261.32);
+    --color-neutral-600: oklch(0.6248 0.021 248.16);
+    --color-neutral-700: oklch(0.522 0.024 248.29);
+    --color-neutral-800: oklch(0.4008 0.0227 250.88);
+    --color-neutral-900: oklch(0.297 0.0184 248.45);
+    --color-neutral-950: oklch(0.1776 0 0);
+
+    /* ============================================================
+     SUCCESS SCALE (Verde Feedback)
+     ============================================================ */
+    --color-success-50: oklch(0.97 0.05 155);
+    --color-success-100: oklch(0.94 0.08 155);
+    --color-success-200: oklch(0.89 0.12 155);
+    --color-success-300: oklch(0.82 0.15 155);
+    --color-success-400: oklch(0.74 0.17 155);
+    --color-success-500: oklch(0.67 0.18 155);
+    --color-success-600: oklch(0.62 0.18 155);
+    --color-success-700: oklch(0.52 0.15 155);
+    --color-success-800: oklch(0.42 0.12 155);
+    --color-success-900: oklch(0.31 0.08 155);
+    --color-success-950: oklch(0.18 0.04 155);
+
+    /* ============================================================
+     WARNING SCALE (Laranja)
+     ============================================================ */
+    --color-warning-50: oklch(0.98 0.02 85);
+    --color-warning-100: oklch(0.96 0.05 85);
+    --color-warning-200: oklch(0.90 0.08 85);
+    --color-warning-300: oklch(0.84 0.11 85);
+    --color-warning-400: oklch(0.73 0.10 85);
+    --color-warning-500: oklch(0.72 0.16 75);
+    --color-warning-600: oklch(0.64 0.18 65);
+    --color-warning-700: oklch(0.54 0.16 60);
+    --color-warning-800: oklch(0.44 0.13 55);
+    --color-warning-900: oklch(0.38 0.10 50);
+    --color-warning-950: oklch(0.25 0.06 45);
+
+    /* ============================================================
+     CRITICAL SCALE (Vermelho)
+     ============================================================ */
+    --color-critical-50: oklch(0.98 0.01 20);
+    --color-critical-100: oklch(0.97 0.02 20);
+    --color-critical-200: oklch(0.92 0.05 20);
+    --color-critical-300: oklch(0.87 0.08 20);
+    --color-critical-400: oklch(0.76 0.14 20);
+    --color-critical-500: oklch(0.63 0.24 25);
+    --color-critical-600: oklch(0.55 0.22 25);
+    --color-critical-700: oklch(0.47 0.19 25);
+    --color-critical-800: oklch(0.42 0.16 25);
+    --color-critical-900: oklch(0.38 0.13 25);
+    --color-critical-950: oklch(0.22 0.08 25);
+
+    /* ============================================================
+     INFO SCALE (Azul)
+     ============================================================ */
+    --color-info-50: oklch(0.95 0.03 250);
+    --color-info-100: oklch(0.90 0.06 250);
+    --color-info-200: oklch(0.81 0.10 250);
+    --color-info-300: oklch(0.72 0.13 250);
+    --color-info-400: oklch(0.64 0.15 250);
+    --color-info-500: oklch(0.58 0.17 250);
+    --color-info-600: oklch(0.48 0.14 250);
+    --color-info-700: oklch(0.40 0.11 250);
+    --color-info-800: oklch(0.22 0.04 250);
+    --color-info-900: oklch(0.16 0.03 250);
+    --color-info-950: oklch(0.10 0.02 250);
+}

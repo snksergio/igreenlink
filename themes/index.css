@@ -1,0 +1,25 @@
+/**
+ * iGreen Design System - Main Entry Point
+ * 
+ * Imports the default theme.
+ * To use a dif
+
+ferent theme, change the imports below.
+ * 
+ * Current structure:
+ * - themes/default/ - Default theme (active)
+ * - themes/tailwind-merge.config.ts - Tailwind merge configuration
+ * 
+ * Future themes can be added in separate directories:
+ * - themes/ocean/
+ * - themes/dark/
+ */
+
+/* Default Theme */
+@import "./default/primitives/index.css";
+@import "./default/semantic/index.css";
+
+/* Future themes (example - uncomment to activate):
+@import "./ocean/primitives/index.css";
+@import "./ocean/semantic/index.css";
+*/

@@ -1,0 +1,352 @@
+/**
+ * Typography Variables & Utilities
+ * Generated from theme.json and styles.css
+ * 
+ * Structure:
+ * - Font families
+ * - Text style utility classes
+ */
+
+:root {
+    /* ============================================================
+     FONT FAMILIES
+     ============================================================ */
+    --font-family-sans: "Geist", system-ui, -apple-system, sans-serif;
+}
+
+/* ============================================================
+   TEXT DISPLAY STYLES
+   ============================================================ */
+.text-display-lg {
+    font-size: 26px;
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 34px;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-display-md {
+    font-size: 24px;
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 28px;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-display-sm {
+    font-size: 18px;
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* ============================================================
+   PAGE & SECTION TITLES
+   ============================================================ */
+.text-page-title {
+    font-size: 26px;
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 34px;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-page-subtitle {
+    font-size: 14px;
+    font-family: var(--font-family-sans);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-section-title {
+    font-size: 18px;
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-modal-title {
+    font-size: 24px;
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 26px;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* ============================================================
+   LABELS
+   ============================================================ */
+.text-label {
+    font-size: 11px;
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 16px;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/* ============================================================
+   BODY TEXT
+   ============================================================ */
+.text-body-lg-medium {
+    font-size: 14px;
+    font-family: var(--font-family-sans);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-body-lg-semibold {
+    font-size: 14px;
+    font-family: var(--font-family-sans);
+    font-weight: 600;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-body-md-bold {
+    font-size: 13px;
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-body-md-semibold {
+    font-size: 13px;
+    font-family: var(--font-family-sans);
+    font-weight: 600;
+    font-style: normal;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-body-md-medium {
+    font-size: 13px;
+    font-family: var(--font-family-sans);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-body-sm-bold {
+    font-size: 12px;
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-body-sm-semibold {
+    font-size: 12px;
+    font-family: var(--font-family-sans);
+    font-weight: 600;
+    font-style: normal;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-body-sm-medium {
+    font-size: 12px;
+    font-family: var(--font-family-sans);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-body-xs-medium {
+    font-size: 11px;
+    font-family: var(--font-family-sans);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 16px;
+    letter-spacing: 0.005em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-body-xs-semibold {
+    font-size: 11px;
+    font-family: var(--font-family-sans);
+    font-weight: 600;
+    font-style: normal;
+    line-height: 16px;
+    letter-spacing: 0.005em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* ============================================================
+   BUTTON TEXT
+   ============================================================ */
+.text-button-md {
+    font-size: 14px;
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-button-sm {
+    font-size: 13px;
+    font-family: var(--font-family-sans);
+    font-weight: 600;
+    font-style: normal;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* ============================================================
+   CAPTION TEXT
+   ============================================================ */
+.text-caption-md {
+    font-size: 12px;
+    font-family: var(--font-family-sans);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 16px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+.text-caption-sm {
+    font-size: 11px;
+    font-family: var(--font-family-sans);
+    font-weight: 500;
+    font-style: normal;
+    line-height: 14px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    text-transform: none;
+}
+
+/* Mobile breakpoint: 768px (--breakpoint-mobile from sizes.css) */
+@media (max-width: 768px) {
+
+    /* Adjust typography for mobile */
+    .text-display-lg {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    .text-display-md {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .text-display-sm {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .text-page-title {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    .text-page-subtitle {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .text-section-title {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .text-body-lg-medium,
+    .text-body-lg-semibold {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .text-body-md-bold,
+    .text-body-md-semibold,
+    .text-body-md-medium {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .text-body-sm-bold,
+    .text-body-sm-semibold,
+    .text-body-sm-medium {
+        font-size: 10px;
+        line-height: 14px;
+    }
+
+    .text-body-xs-medium,
+    .text-body-xs-semibold {
+        font-size: 9px;
+        line-height: 12px;
+    }
+
+    .text-button-md {
+        font-size: 12px;
+    }
+
+    .text-button-sm {
+        font-size: 11px;
+    }
+
+    .text-caption-md {
+        font-size: 10px;
+    }
+
+    .text-caption-sm {
+        font-size: 9px;
+    }
+}
