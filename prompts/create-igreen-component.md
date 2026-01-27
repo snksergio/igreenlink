@@ -122,20 +122,7 @@ export const componentStyles = {
     // ===== CONTAINER PRINCIPAL =====
     container: {
         // Base: sempre aplicado
-        base: [
-            // Layout
-            "flex items-center gap-3",
-            // Size usando CSS variable
-            "h-[var(--height-form-md)]",
-            "p-3",
-            // Border radius usando CSS variable
-            "rounded-[var(--radius-base)]",
-            // Transição
-            "transition-all duration-200 ease-in-out",
-            // Interatividade
-            "cursor-pointer",
-            "focus-visible:outline-none focus-visible:ring-ring-primary",
-        ].join(" "),
+        base: "flex items-center gap-3 h-[var(--height-form-md)] p-3 rounded-[var(--radius-base)] transition-all duration-200 ease-in-out cursor-pointer focus-visible:outline-none focus-visible:ring-ring-primary",
 
         // Variantes visuais
         variants: {

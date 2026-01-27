@@ -13,10 +13,11 @@ const TabsList = React.forwardRef<
     <TabsPrimitive.List
         ref={ref}
         className={cn(
-            // Figma: container pill cinza com padding
+            // Layout
             "inline-flex items-center justify-center",
-            "bg-[#f3f4f6] p-[4px] rounded-[14px]",
-            "gap-[4px]",
+            // Background & Shape (from Figma: bg-muted, radius-base)
+            "bg-bg-muted p-1 gap-1",
+            "rounded-[var(--radius-base)]",
             className
         )}
         {...props}
@@ -31,22 +32,23 @@ const TabsTrigger = React.forwardRef<
     <TabsPrimitive.Trigger
         ref={ref}
         className={cn(
-            // Base dimensions and layout
-            "h-[40px] flex-1 rounded-[10px] p-[10px]",
-            "inline-flex items-center justify-center gap-[10px]",
+            // Dimensions (from Figma: h-form-sm, radius-sm, px-3, gap-2.5)
+            "h-form-sm flex-1 px-3",
+            "rounded-sm",
+            "inline-flex items-center justify-center gap-2.5",
             "whitespace-nowrap",
-            // Typography - 12px Bold, tracking 0.12px
-            "text-[12px] font-bold leading-normal tracking-[0.12px]",
+            // Typography (from Figma: text-body-md/semibold)
+            "text-body-md-semibold",
             // Transitions
             "transition-all",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
             "disabled:pointer-events-none disabled:opacity-50",
-            // Inactive state (default) - cinza, transparent
-            "text-[#9ca3af]",
-            // Active state - verde, white background, shadow
-            "data-[state=active]:bg-white",
-            "data-[state=active]:text-[#00a859]",
-            "data-[state=active]:shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]",
+            // Inactive state (from Figma: fg-muted)
+            "text-fg-muted",
+            // Active state (from Figma: bg-surface, fg-primary, boxshadow-sm)
+            "data-[state=active]:bg-bg-surface",
+            "data-[state=active]:text-fg-primary",
+            "data-[state=active]:shadow-[0px_1px_2px_rgba(0,0,0,0.05)]",
             className
         )}
         {...props}

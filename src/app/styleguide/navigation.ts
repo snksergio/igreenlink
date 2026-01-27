@@ -93,7 +93,20 @@ export const navigation: NavSection[] = [
                 href: "/styleguide/components/alert",
                 badge: "UNSTYLED"
             },
-
+            {
+                name: "Tabs",
+                href: "/styleguide/components/tabspage",
+            },
+            {
+                name: "FileDropZone",
+                href: "/styleguide/components/filedropzone",
+                badge: "iGreen"
+            },
+            {
+                name: "ToggleCard",
+                href: "/styleguide/components/togglecard",
+                badge: "iGreen"
+            },
         ]
     }
 ];
