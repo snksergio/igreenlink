@@ -68,6 +68,24 @@ export default function ButtonPage() {
                             </Button>
                         </div>
                     </StyleguideExample>
+
+
+                    <StyleguideExample
+                        title="Link"
+                        code={`<Button variant="link">Link Button</Button>`}
+                    >
+                        <div className="flex flex-wrap gap-4 items-center">
+                            <Button variant="link" startIcon={<User />}>
+                                Link with Icon
+                            </Button>
+                            <Button variant="link">
+                                Link Button
+                            </Button>
+                            <Button variant="link" className="text-fg-muted hover:text-fg-main">
+                                Muted Link
+                            </Button>
+                        </div>
+                    </StyleguideExample>
                 </StyleguideSection>
 
                 <StyleguideSection title="Tamanhos">

@@ -85,7 +85,7 @@ export default function InputTextPage() {
 
                     <div className="space-y-8">
                         {/* States */}
-                        <div className="bg-bg-surface border border-border rounded-lg p-6 space-y-4">
+                        <div className="bg-bg-muted border border-border rounded-lg p-6 space-y-4">
                             <h3 className="text-body-md-semibold text-fg-strong">Status</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <InputText
@@ -125,7 +125,7 @@ export default function InputTextPage() {
                         </div>
 
                         {/* Icons */}
-                        <div className="bg-bg-surface border border-border rounded-lg p-6 space-y-4">
+                        <div className="bg-bg-muted border border-border rounded-lg p-6 space-y-4">
                             <h3 className="text-body-md-semibold text-fg-strong">Ícones e Loading</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <InputText
@@ -161,7 +161,7 @@ export default function InputTextPage() {
                         </div>
 
                         {/* Sizes */}
-                        <div className="bg-bg-surface border border-border rounded-lg p-6 space-y-4">
+                        <div className="bg-bg-muted border border-border rounded-lg p-6 space-y-4">
                             <h3 className="text-body-md-semibold text-fg-strong">Tamanhos</h3>
                             <div className="space-y-6 max-w-md">
                                 <InputText
@@ -184,7 +184,7 @@ export default function InputTextPage() {
                         </div>
 
                         {/* Data Types */}
-                        <div className="bg-bg-surface border border-border rounded-lg p-6 space-y-4">
+                        <div className="bg-bg-muted border border-border rounded-lg p-6 space-y-4">
                             <h3 className="text-body-md-semibold text-fg-strong">Tipos de Dado</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <InputText

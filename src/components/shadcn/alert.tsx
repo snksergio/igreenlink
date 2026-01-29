@@ -4,13 +4,16 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const alertVariants = cva(
-  "relative w-full rounded-lg border px-4 py-3 text-sm grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current",
+  "relative w-full rounded-base px-4 py-4 text-body-md-semibold grid grid-cols-[auto_1fr] gap-x-3 items-center [&>svg]:size-4 [&>svg]:text-current",
   {
     variants: {
       variant: {
-        default: "bg-card text-card-foreground",
+        default: "bg-bg-surface text-fg-main border border-border",
         destructive:
-          "text-destructive bg-card [&>svg]:text-current *:data-[slot=alert-description]:text-destructive/90",
+          "border-border-critical/50 text-fg-critical dark:border-border-critical text-fg-critical",
+        success: "bg-bg-success-subtle text-fg-success-strong",
+        warning: "bg-bg-warning-subtle text-fg-warning-strong",
+        critical: "bg-bg-critical-subtle text-fg-critical-strong",
       },
     },
     defaultVariants: {
@@ -22,15 +25,25 @@ const alertVariants = cva(
 function Alert({
   className,
   variant,
+  title,
+  description,
+  children,
   ...props
-}: React.ComponentProps<"div"> & VariantProps<typeof alertVariants>) {
+}: React.ComponentProps<"div"> & VariantProps<typeof alertVariants> & {
+  title?: string
+  description?: string
+}) {
   return (
     <div
       data-slot="alert"
       role="alert"
       className={cn(alertVariants({ variant }), className)}
       {...props}
-    />
+    >
+      {children}
+      {title && <AlertTitle>{title}</AlertTitle>}
+      {description && <AlertDescription>{description}</AlertDescription>}
+    </div>
   )
 }
 
@@ -55,7 +68,7 @@ function AlertDescription({
     <div
       data-slot="alert-description"
       className={cn(
-        "text-muted-foreground col-start-2 grid justify-items-start gap-1 text-sm [&_p]:leading-relaxed",
+        "col-start-2 grid justify-items-start gap-1 text-sm [&_p]:leading-relaxed",
         className
       )}
       {...props}

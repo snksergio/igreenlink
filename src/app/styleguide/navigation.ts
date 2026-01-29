@@ -58,10 +58,18 @@ export const navigation: NavSection[] = [
     {
         title: "Components",
         items: [
+            // Core & Primitives
+            {
+                name: "Icon",
+                href: "/styleguide/components/icons-library",
+                badge: "iGreen"
+            },
             {
                 name: "Button",
                 href: "/styleguide/components/button",
             },
+
+            // Form Inputs & Text
             {
                 name: "Label",
                 href: "/styleguide/components/label",
@@ -83,23 +91,24 @@ export const navigation: NavSection[] = [
                 href: "/styleguide/components/input-text",
                 badge: "iGreen"
             },
+
+            // Selection Controls
             {
-                name: "Choice",
-                href: "/styleguide/components/choice",
+                name: "Select",
+                href: "/styleguide/components/select",
+            },
+            {
+                name: "Accordion Select",
+                href: "/styleguide/components/accordion-select",
                 badge: "iGreen"
             },
             {
-                name: "Alert",
-                href: "/styleguide/components/alert",
-                badge: "UNSTYLED"
+                name: "Checkbox",
+                href: "/styleguide/components/checkbox",
             },
             {
-                name: "Tabs",
-                href: "/styleguide/components/tabspage",
-            },
-            {
-                name: "FileDropZone",
-                href: "/styleguide/components/filedropzone",
+                name: "Choice",
+                href: "/styleguide/components/choice",
                 badge: "iGreen"
             },
             {
@@ -107,6 +116,43 @@ export const navigation: NavSection[] = [
                 href: "/styleguide/components/togglecard",
                 badge: "iGreen"
             },
+            {
+                name: "FileDropZone",
+                href: "/styleguide/components/filedropzone",
+                badge: "iGreen"
+            },
+
+            // Feedback & Overlays
+            {
+                name: "Alert",
+                href: "/styleguide/components/alert",
+            },
+            {
+                name: "Dialog Alert",
+                href: "/styleguide/components/dialog-alert",
+                badge: "iGreen"
+            },
+            {
+                name: "Dialog",
+                href: "/styleguide/components/dialog",
+                badge: "iGreen"
+            },
+
+            // Navigation & Display
+            {
+                name: "Tabs",
+                href: "/styleguide/components/tabspage",
+            },
+            {
+                name: "Dropdown Menu",
+                href: "/styleguide/components/dropdown-menu",
+            },
+            {
+                name: "Text Collapse",
+                href: "/styleguide/components/text-collapse",
+                badge: "iGreen"
+            },
+
         ]
     }
 ];

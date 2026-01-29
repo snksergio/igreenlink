@@ -1,163 +1,154 @@
 "use client";
 
-import { Alert, AlertTitle, AlertDescription } from "@/components/shadcn/alert";
-import { Info, AlertCircle, CheckCircle2, AlertTriangle, Terminal } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/shadcn/alert";
 import { StyleguideHeader } from "../../ui/header";
 import { StyleguideSection } from "../../ui/section";
 import { StyleguideUsage } from "../../ui/usage";
 import { StyleguideExample } from "../../ui/example";
 import { StyleguidePropsTable } from "../../ui/props-table";
+import { CheckCircle, AlertTriangle, XCircle, Info, Terminal } from "lucide-react";
 
 export default function AlertPage() {
     return (
         <div className="min-h-screen bg-bg-canvas">
             <StyleguideHeader
                 title="Alert"
-                description="Componente de alerta para exibir mensagens importantes ao usuário - Shadcn UI padrão"
+                description="Exibe uma chamada de atenção para o usuário sobre informações importantes."
                 links={[
-                    { label: "Documentação Shadcn UI", href: "https://ui.shadcn.com/docs/components/radix/alert" },
+                    {
+                        label: "Documentação Shadcn UI",
+                        href: "https://ui.shadcn.com/docs/components/alert",
+                    },
                 ]}
             />
 
             <div className="max-w-7xl mx-auto px-8 py-8 space-y-12">
                 <StyleguideSection title="Usage">
                     <StyleguideUsage
-                        importCode={`import { Alert, AlertTitle, AlertDescription } from "@/components/shadcn/alert";`}
+                        importCode={`import { Alert, AlertDescription, AlertTitle } from "@/components/shadcn/alert"`}
                         exampleCode={`<Alert>
-  <Info />
+  <Terminal className="h-4 w-4" />
   <AlertTitle>Heads up!</AlertTitle>
   <AlertDescription>
-    You can add components and dependencies to your app using the cli.
+    You can add components to your app using the cli.
   </AlertDescription>
 </Alert>`}
                     />
                 </StyleguideSection>
 
-                <StyleguideSection title="Variantes">
+                <StyleguideSection title="Variantes iGreen">
+                    <p className="text-body-md-medium text-fg-muted mb-6">
+                        Variantes mapeadas do design system (Figma Node 2617-4223).
+                    </p>
+
                     <StyleguideExample
-                        title="Default"
+                        title="Warning (Padrão)"
+                        code={`<Alert variant="warning">
+  <div data-slot="icon-wrapper" className="flex size-9 items-center justify-center rounded-[var(--radius-sm)] bg-bg-warning shrink-0">
+     <AlertTriangle className="size-[18px] text-white" />
+  </div>
+  <AlertDescription>
+    Para titulares com mais de 75 anos, é necessário informar um contato de um responsável.
+  </AlertDescription>
+</Alert>`}
+                    >
+                        <Alert variant="warning" className="max-w-[420px]">
+                            <div data-slot="icon-wrapper" className="flex size-9 items-center justify-center rounded-[var(--radius-sm)] bg-bg-warning shrink-0">
+                                <AlertTriangle className="size-[18px] text-white" />
+                            </div>
+                            <AlertDescription>
+                                Para titulares com mais de 75 anos, é necessário informar um contato de um responsável.
+                            </AlertDescription>
+                        </Alert>
+                    </StyleguideExample>
+
+                    <StyleguideExample
+                        title="Success"
+                        code={`<Alert variant="success">
+  <div data-slot="icon-wrapper" className="flex size-9 items-center justify-center rounded-[var(--radius-sm)] bg-bg-success shrink-0">
+     <CheckCircle className="size-[18px] text-white" />
+  </div>
+  <AlertDescription>
+    Operação realizada com sucesso.
+  </AlertDescription>
+</Alert>`}
+                    >
+                        <Alert variant="success" className="max-w-[420px]">
+                            <div data-slot="icon-wrapper" className="flex size-9 items-center justify-center rounded-[var(--radius-sm)] bg-bg-success shrink-0">
+                                <CheckCircle className="size-[18px] text-white" />
+                            </div>
+                            <AlertDescription>
+                                Operação realizada com sucesso.
+                            </AlertDescription>
+                        </Alert>
+                    </StyleguideExample>
+
+                    <StyleguideExample
+                        title="Critical"
+                        code={`<Alert variant="critical">
+  <div data-slot="icon-wrapper" className="flex size-9 items-center justify-center rounded-[var(--radius-sm)] bg-bg-critical shrink-0">
+     <XCircle className="size-[18px] text-white" />
+  </div>
+  <AlertDescription>
+    Não foi possível processar sua solicitação.
+  </AlertDescription>
+</Alert>`}
+                    >
+                        <Alert variant="critical" className="max-w-[420px]">
+                            <div data-slot="icon-wrapper" className="flex size-9 items-center justify-center rounded-[var(--radius-sm)] bg-bg-critical shrink-0">
+                                <XCircle className="size-[18px] text-white" />
+                            </div>
+                            <AlertDescription>
+                                Não foi possível processar sua solicitação.
+                            </AlertDescription>
+                        </Alert>
+                    </StyleguideExample>
+                </StyleguideSection>
+
+                <StyleguideSection title="Shadcn Default Style (Fallback)">
+                    <StyleguideExample
+                        title="Default (Simples)"
                         code={`<Alert>
-  <Info />
+  <Terminal className="h-4 w-4" />
   <AlertTitle>Heads up!</AlertTitle>
   <AlertDescription>
-    You can add components and dependencies to your app using the cli.
+    You can add components to your app using the cli.
   </AlertDescription>
 </Alert>`}
                     >
                         <Alert>
-                            <Info />
+                            <Terminal className="h-4 w-4" />
                             <AlertTitle>Heads up!</AlertTitle>
                             <AlertDescription>
-                                You can add components and dependencies to your app using the cli.
-                            </AlertDescription>
-                        </Alert>
-                    </StyleguideExample>
-
-                    <StyleguideExample
-                        title="Destructive"
-                        code={`<Alert variant="destructive">
-  <AlertCircle />
-  <AlertTitle>Error</AlertTitle>
-  <AlertDescription>
-    Your session has expired. Please log in again.
-  </AlertDescription>
-</Alert>`}
-                    >
-                        <Alert variant="destructive">
-                            <AlertCircle />
-                            <AlertTitle>Error</AlertTitle>
-                            <AlertDescription>
-                                Your session has expired. Please log in again.
+                                You can add components to your app using the cli.
                             </AlertDescription>
                         </Alert>
                     </StyleguideExample>
                 </StyleguideSection>
 
-                <StyleguideSection title="Casos de Uso">
+                <StyleguideSection title="Uso Simplificado (Props)">
+                    <p className="text-body-md-medium text-fg-muted mb-6">
+                        Você pode passar o título e a descrição diretamente via props para uma sintaxe mais limpa.
+                    </p>
                     <StyleguideExample
-                        title="Informativo"
-                        code={`<Alert>
-  <Info />
-  <AlertTitle>Informação</AlertTitle>
-  <AlertDescription>Nova versão disponível.</AlertDescription>
+                        title="Com Props"
+                        code={`<Alert 
+  variant="warning"
+  description="Este alerta foi construído passando apenas description como propriedade."
+>
+  <div data-slot="icon-wrapper" className="flex size-9 items-center justify-center rounded-[var(--radius-sm)] bg-bg-warning shrink-0">
+     <AlertTriangle className="size-[18px] text-white" />
+  </div>
 </Alert>`}
                     >
-                        <Alert>
-                            <Info />
-                            <AlertTitle>Informação</AlertTitle>
-                            <AlertDescription>
-                                Uma nova versão do aplicativo está disponível. Atualize para ter acesso às últimas funcionalidades.
-                            </AlertDescription>
-                        </Alert>
-                    </StyleguideExample>
-
-                    <StyleguideExample
-                        title="Sucesso"
-                        code={`<Alert className="bg-success-50 border-success-200 text-success-950">
-  <CheckCircle2 className="text-success-600" />
-  <AlertTitle>Sucesso!</AlertTitle>
-  <AlertDescription>Operação realizada.</AlertDescription>
-</Alert>`}
-                    >
-                        <Alert className="bg-success-50 border-success-200 text-success-950 [&>svg]:text-success-600">
-                            <CheckCircle2 />
-                            <AlertTitle>Sucesso!</AlertTitle>
-                            <AlertDescription>
-                                Sua conta foi criada com sucesso. Bem-vindo ao iGreen!
-                            </AlertDescription>
-                        </Alert>
-                    </StyleguideExample>
-
-                    <StyleguideExample
-                        title="Aviso (Warning)"
-                        code={`<Alert className="bg-warning-50 border-warning-200 text-warning-950">
-  <AlertTriangle className="text-warning-600" />
-  <AlertTitle>Atenção</AlertTitle>
-  <AlertDescription>Verifique seus dados.</AlertDescription>
-</Alert>`}
-                    >
-                        <Alert className="bg-warning-50 border-warning-200 text-warning-950 [&>svg]:text-warning-600">
-                            <AlertTriangle />
-                            <AlertTitle>Atenção</AlertTitle>
-                            <AlertDescription>
-                                Sua assinatura expira em 3 dias. Renove para continuar usando todos os recursos.
-                            </AlertDescription>
-                        </Alert>
-                    </StyleguideExample>
-
-                    <StyleguideExample
-                        title="Terminal / CLI"
-                        code={`<Alert>
-  <Terminal />
-  <AlertTitle>Terminal</AlertTitle>
-  <AlertDescription>npx shadcn@latest add alert</AlertDescription>
-</Alert>`}
-                    >
-                        <Alert>
-                            <Terminal />
-                            <AlertTitle>Comando CLI</AlertTitle>
-                            <AlertDescription>
-                                <code className="font-mono text-sm bg-muted px-1 py-0.5 rounded">
-                                    npx shadcn@latest add alert
-                                </code>
-                            </AlertDescription>
-                        </Alert>
-                    </StyleguideExample>
-                </StyleguideSection>
-
-                <StyleguideSection title="Sem Ícone">
-                    <StyleguideExample
-                        title="Apenas Texto"
-                        code={`<Alert>
-  <AlertTitle>Título do Alerta</AlertTitle>
-  <AlertDescription>Descrição do alerta sem ícone.</AlertDescription>
-</Alert>`}
-                    >
-                        <Alert>
-                            <AlertTitle>Título do Alerta</AlertTitle>
-                            <AlertDescription>
-                                Este é um alerta simples sem ícone, útil para mensagens menos importantes.
-                            </AlertDescription>
+                        <Alert
+                            variant="warning"
+                            description="Este alerta foi construído passando apenas description como propriedade."
+                            className="max-w-[420px]"
+                        >
+                            <div data-slot="icon-wrapper" className="flex size-9 items-center justify-center rounded-[var(--radius-sm)] bg-bg-warning shrink-0">
+                                <AlertTriangle className="size-[18px] text-white" />
+                            </div>
                         </Alert>
                     </StyleguideExample>
                 </StyleguideSection>
@@ -165,22 +156,24 @@ export default function AlertPage() {
                 <StyleguideSection title="Props">
                     <StyleguidePropsTable
                         data={[
-                            { prop: "variant", type: "default | destructive", defaultValue: "default", description: "Variante visual do alerta" },
-                            { prop: "className", type: "string", defaultValue: "-", description: "Classes CSS adicionais para customização" },
-                        ]}
-                    />
-
-                    <h4 className="text-body-lg-semibold text-fg-strong mt-6 mb-3">AlertTitle</h4>
-                    <StyleguidePropsTable
-                        data={[
-                            { prop: "className", type: "string", defaultValue: "-", description: "Classes CSS adicionais" },
-                        ]}
-                    />
-
-                    <h4 className="text-body-lg-semibold text-fg-strong mt-6 mb-3">AlertDescription</h4>
-                    <StyleguidePropsTable
-                        data={[
-                            { prop: "className", type: "string", defaultValue: "-", description: "Classes CSS adicionais" },
+                            {
+                                prop: "variant",
+                                type: '"default" | "destructive" | "success" | "warning" | "critical"',
+                                defaultValue: "default",
+                                description: "Estilo visual do alerta.",
+                            },
+                            {
+                                prop: "title",
+                                type: "string",
+                                defaultValue: "-",
+                                description: "Título do alerta (opcional).",
+                            },
+                            {
+                                prop: "description",
+                                type: "string",
+                                defaultValue: "-",
+                                description: "Descrição do alerta (opcional).",
+                            },
                         ]}
                     />
                 </StyleguideSection>

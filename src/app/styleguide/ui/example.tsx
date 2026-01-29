@@ -1,11 +1,15 @@
+import { cn } from "@/lib/utils";
+
 interface StyleguideExampleProps {
     title?: string;
     subtitle?: string;
     children: React.ReactNode;
     code?: string;
+    className?: string;
+    inverseColor?: boolean;
 }
 
-export function StyleguideExample({ title, subtitle, children, code }: StyleguideExampleProps) {
+export function StyleguideExample({ title, subtitle, children, code, className, inverseColor }: StyleguideExampleProps) {
     return (
         <div className="mb-8 last:mb-0">
             {title && (
@@ -16,11 +20,18 @@ export function StyleguideExample({ title, subtitle, children, code }: Styleguid
                     {subtitle}
                 </p>
             )}
-            <div className="bg-bg-surface border border-border rounded-lg p-6 space-y-4">
+            <div className={cn(
+                "border border-border rounded-lg p-6 space-y-4",
+                inverseColor ? "bg-bg-muted" : "bg-bg-surface",
+                className
+            )}>
                 {children}
 
                 {code && (
-                    <div className="p-4 bg-bg-muted rounded text-sm overflow-x-auto">
+                    <div className={cn(
+                        "p-4 rounded text-sm overflow-x-auto",
+                        inverseColor ? "bg-bg-surface" : "bg-bg-muted"
+                    )}>
                         <code className="text-caption-md text-fg-main block font-mono whitespace-pre">
                             {code}
                         </code>

@@ -17,7 +17,7 @@ export const toggleCardStyles = {
 
     // ===== HEADER (Icon + Texts + Toggle) =====
     header: {
-        container: "flex items-center gap-4 w-full",
+        container: "flex items-center gap-3 w-full flex-wrap md:flex-nowrap",
     },
 
     // ===== ÍCONE =====
@@ -35,10 +35,10 @@ export const toggleCardStyles = {
 
     // ===== TOGGLE SWITCH (Sim/Não) =====
     toggle: {
-        container: "flex items-center p-1 gap-1 bg-bg-background rounded-base border border-border shrink-0",
+        container: "flex items-center p-1 gap-1 bg-bg-background rounded-base border border-border shrink-0 w-full md:w-auto mt-0 md:mt-0",
 
         button: {
-            base: "flex items-center justify-center h-[34px] min-w-[54px] px-4 rounded-sm text-body-sm-semibold transition-all duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-ring-primary focus-visible:outline-none",
+            base: "flex items-center justify-center h-[34px] min-w-[54px] px-4 rounded-sm text-body-sm-semibold transition-all duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-ring-primary focus-visible:outline-none flex-1 md:flex-none w-full md:w-auto",
 
             // Estado Ativo (Selecionado)
             activeMatches: {
@@ -57,6 +57,6 @@ export const toggleCardStyles = {
         visible: "grid-rows-[1fr] opacity-100",
         hidden: "grid-rows-[0fr] opacity-0",
         inner: "overflow-hidden",
-        content: "pt-4 border-t border-border-muted mt-4 border-solid",
+        content: "pt-2 border-t border-border-muted mt-2 border-solid",
     }
 };

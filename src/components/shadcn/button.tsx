@@ -8,6 +8,7 @@ const buttonVariants = cva(
     [
         "inline-flex items-center justify-center",
         "gap-3",  // 12px gap do Figma
+        "cursor-pointer",
         "transition-colors",
         "border",
         "focus-visible:outline-none focus-visible:ring-ring-primary",
@@ -18,6 +19,7 @@ const buttonVariants = cva(
             variant: {
                 default: "",
                 soft: "",
+                link: "text-fg-primary underline-offset-4 hover:!underline border-none bg-transparent shadow-none px-0 h-auto gap-2",
             },
             color: {
                 primary: "",

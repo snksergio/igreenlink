@@ -12,23 +12,7 @@ import { FileDropZoneStatus } from "./FileDropZone.types";
 export const fileDropZoneStyles = {
     // ===== CONTAINER PRINCIPAL =====
     container: {
-        base: [
-            // Layout
-            "flex flex-col items-center justify-center",
-            "gap-6",
-            // Sizing (height controlled via style prop)
-            "w-full",
-            // Padding
-            "px-4 pt-8 pb-4",
-            // Border radius
-            "rounded-[var(--radius-base)]",
-            // Border - TODAS as variantes usam dashed
-            "border border-dashed",
-            // Shadow
-            "shadows-boxshadow-base",
-            // Transition
-            "transition-all duration-300 ease-in-out",
-        ].join(" "),
+        base: "flex flex-col items-center justify-center gap-6 w-full px-4 pt-8 pb-4 rounded-[var(--radius-base)] border border-dashed shadows-boxshadow-base transition-all duration-300 ease-in-out",
 
         // Status-based styles (hover apenas em idle)
         status: {
@@ -43,13 +27,7 @@ export const fileDropZoneStyles = {
 
     // ===== ICON BOX =====
     iconBox: {
-        base: [
-            "shrink-0",
-            "size-[42px]",
-            "rounded-[var(--radius-sm)]",
-            "flex items-center justify-center",
-            "overflow-hidden",
-        ].join(" "),
+        base: "shrink-0 size-[42px] rounded-[var(--radius-sm)] flex items-center justify-center overflow-hidden",
 
         status: {
             idle: "bg-bg-primary text-fg-on-primary",
@@ -95,11 +73,7 @@ export const fileDropZoneStyles = {
 
     // ===== ACTIONS AREA =====
     actions: {
-        container: [
-            "flex items-center justify-center",
-            "gap-3",
-            "w-full",
-        ].join(" "),
+        container: "flex items-center justify-center gap-3 w-full flex-col md:flex-row",
 
         // Wrapper: Grid para animação de altura (0fr -> 1fr)
         wrapper: "w-full grid transition-all duration-400 ease-[cubic-bezier(0.33,1,0.68,1)]",
@@ -111,7 +85,7 @@ export const fileDropZoneStyles = {
         // Inner container para o grid funcionar
         inner: "overflow-hidden",
         // Wrapper para botoes default (com flex-1)
-        defaultButtonWrapper: "flex-1 [&>button]:w-full",
+        defaultButtonWrapper: "flex-1 [&>button]:w-full w-full md:w-auto",
         // Input de senha
         passwordInput: "flex-1 max-w-[220px]",
     },
@@ -120,29 +94,17 @@ export const fileDropZoneStyles = {
 // ===== HELPER FUNCTIONS =====
 
 export function getContainerClasses(status: FileDropZoneStatus): string {
-    return [
-        fileDropZoneStyles.container.base,
-        fileDropZoneStyles.container.status[status],
-    ].join(" ");
+    return `${fileDropZoneStyles.container.base} ${fileDropZoneStyles.container.status[status]}`;
 }
 
 export function getIconBoxClasses(status: FileDropZoneStatus): string {
-    return [
-        fileDropZoneStyles.iconBox.base,
-        fileDropZoneStyles.iconBox.status[status],
-    ].join(" ");
+    return `${fileDropZoneStyles.iconBox.base} ${fileDropZoneStyles.iconBox.status[status]}`;
 }
 
 export function getTitleClasses(status: FileDropZoneStatus): string {
-    return [
-        fileDropZoneStyles.content.title.base,
-        fileDropZoneStyles.content.title.status[status],
-    ].join(" ");
+    return `${fileDropZoneStyles.content.title.base} ${fileDropZoneStyles.content.title.status[status]}`;
 }
 
 export function getDescriptionClasses(status: FileDropZoneStatus): string {
-    return [
-        fileDropZoneStyles.content.description.base,
-        fileDropZoneStyles.content.description.status[status],
-    ].join(" ");
+    return `${fileDropZoneStyles.content.description.base} ${fileDropZoneStyles.content.description.status[status]}`;
 }
