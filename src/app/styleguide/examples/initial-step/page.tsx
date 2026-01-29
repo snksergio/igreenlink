@@ -1,10 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { Button } from "@/components/shadcn/button";
-import { FileDropZone } from "@/components/igreen/FileDropZone";
+import { FileDropZone, FileDropZoneRef } from "@/components/igreen/FileDropZone";
 
 export default function InitialStepPage() {
+    const fileDropRef = useRef<FileDropZoneRef>(null);
+
+    const handleValidated = async (file: File, password?: string) => {
+        // 1. Muda para loading com mensagem personalizada
+        fileDropRef.current?.setStatus("loading", "Extraindo dados...", "Aguarde alguns segundos");
+
+        // 2. Simula chamada de API/IA
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // 3. Sucesso! Define status final
+        fileDropRef.current?.setStatus("success", "Upload concluído!", file.name);
+    };
+
     return (
         <div className="min-h-screen bg-bg-surface flex flex-col items-center pt-8 pb-8 px-6">
             <div className="w-full max-w-[480px] flex flex-col gap-6">
@@ -33,8 +46,12 @@ export default function InitialStepPage() {
                     {/* Dropzone Area */}
                     <div className="w-full">
                         <FileDropZone
+                            ref={fileDropRef}
                             title="Solte aqui o arquivo da sua última conta"
                             description="Formatos aceitos: PDF, JPG ou PNG"
+                            accept=".pdf, .jpg, .jpeg, .png"
+                            validatePdf
+                            onValidated={handleValidated}
                             className="w-full"
                         />
                     </div>
