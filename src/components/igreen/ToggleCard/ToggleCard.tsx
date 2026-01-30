@@ -35,6 +35,30 @@ export const ToggleCard: React.FC<ToggleCardProps> = ({
     const handleSetTrue = () => !disabled && onCheckedChange?.(true);
     const handleSetFalse = () => !disabled && onCheckedChange?.(false);
 
+    // Helper para renderizar os botões de toggle (Sim/Não) para evitar duplicação
+    const renderToggleButton = (isTrueButton: boolean, label: string) => {
+        const isActive = checked === isTrueButton;
+        const colorClass = isTrueButton
+            ? toggleCardStyles.toggle.button.activeMatches.true
+            : toggleCardStyles.toggle.button.activeMatches.false;
+
+        return (
+            <button
+                type="button"
+                role="radio"
+                aria-checked={isActive}
+                onClick={isTrueButton ? handleSetTrue : handleSetFalse}
+                disabled={disabled}
+                className={cn(
+                    toggleCardStyles.toggle.button.base,
+                    isActive ? colorClass : toggleCardStyles.toggle.button.inactive
+                )}
+            >
+                {label}
+            </button>
+        );
+    };
+
     return (
         <div
             className={cn(
@@ -69,36 +93,13 @@ export const ToggleCard: React.FC<ToggleCardProps> = ({
                 </div>
 
                 {/* Toggle Switch (Sim/Não) */}
-                <div className={toggleCardStyles.toggle.container}>
-                    {/* Botão SIM (True) */}
-                    <button
-                        type="button"
-                        onClick={handleSetTrue}
-                        disabled={disabled}
-                        className={cn(
-                            toggleCardStyles.toggle.button.base,
-                            checked
-                                ? toggleCardStyles.toggle.button.activeMatches.true
-                                : toggleCardStyles.toggle.button.inactive
-                        )}
-                    >
-                        {fullLabel}
-                    </button>
-
-                    {/* Botão NÃO (False) */}
-                    <button
-                        type="button"
-                        onClick={handleSetFalse}
-                        disabled={disabled}
-                        className={cn(
-                            toggleCardStyles.toggle.button.base,
-                            !checked
-                                ? toggleCardStyles.toggle.button.activeMatches.false
-                                : toggleCardStyles.toggle.button.inactive
-                        )}
-                    >
-                        {offLabel}
-                    </button>
+                <div
+                    className={toggleCardStyles.toggle.container}
+                    role="radiogroup"
+                    aria-label={typeof title === 'string' ? title : "Toggle selection"}
+                >
+                    {renderToggleButton(true, fullLabel)}
+                    {renderToggleButton(false, offLabel)}
                 </div>
             </div>
 

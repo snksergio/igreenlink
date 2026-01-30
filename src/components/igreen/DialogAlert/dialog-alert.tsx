@@ -6,12 +6,13 @@ import { Button } from "@/components/shadcn/button";
 import { cn } from "@/lib/utils";
 import { DialogAlertProps } from "./dialog-alert.types";
 import { dialogAlertStyles } from "./dialog-alert.styles";
-import { AlertTriangle, CheckCircle, XCircle, X } from "lucide-react";
+import { Icon } from "@/components/igreen/Icon";
+import { IconName } from "@/components/igreen/Icon/icon.types";
 
-const Icons = {
-    default: CheckCircle,
-    warning: AlertTriangle,
-    critical: XCircle,
+const variantIcons: Record<string, IconName> = {
+    default: "fill-success",
+    warning: "fill-alert",
+    critical: "fill-alert", // Using fill-alert for critical as well, distinguished by color variants
 };
 
 export function DialogAlert({
@@ -30,7 +31,7 @@ export function DialogAlert({
     onOpenChange,
     ...props
 }: DialogAlertProps) {
-    const IconComponent = Icons[variant];
+    const iconName = variantIcons[variant] || "fill-alert";
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange} {...props}>
@@ -39,7 +40,7 @@ export function DialogAlert({
                 showCloseButton={false}
             >
                 <DialogClose className={dialogAlertStyles.closeButton}>
-                    <X className={dialogAlertStyles.closeIcon} />
+                    <Icon name="line-close" size="lg" className={dialogAlertStyles.closeIcon} />
                     <span className="sr-only">Close</span>
                 </DialogClose>
 
@@ -48,7 +49,11 @@ export function DialogAlert({
                     dialogAlertStyles.iconWrapper.base,
                     dialogAlertStyles.iconWrapper.variants[variant]
                 )}>
-                    {icon || <IconComponent className={dialogAlertStyles.icon.inner} />}
+                    {icon ? (
+                        <Icon name={icon} size="lg" className={dialogAlertStyles.icon.inner} />
+                    ) : (
+                        <Icon name={iconName} size="lg" className={dialogAlertStyles.icon.inner} />
+                    )}
                 </div>
 
                 {/* Content */}

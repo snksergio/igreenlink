@@ -17,13 +17,13 @@ export const inputTextStyles = {
     // Input Group Wrapper overrides baseados no status
     group: {
         default: "",
-        error: "border-border-critical ring-ring-critical/15", // Ring managed by InputGroup logic manually, but we can enforce border
-        warning: "border-border-warning ring-ring-warning/15",
-        completed: "border-border-success ring-ring-success/15",
+        error: "border-border-critical ring-ring-critical",
+        warning: "border-border-warning ring-ring-warning",
+        completed: "border-border-success ring-ring-success",
     },
 
     // Input interno
-    input: "placeholder:text-fg-muted text-fg-main w-full flex-1 [&[type=email]]:appearance-none",
+    input: "placeholder:text-fg-subtle text-fg-strong w-full flex-1 [&[type=email]]:appearance-none",
 
     // Helper Text (Description)
     helper: {
@@ -44,12 +44,10 @@ export const inputTextStyles = {
         loading: "text-fg-primary", // New for loading spinner
     },
 
-    // Override de bordas/focus para InputGroup quando há status
-    // Note: Usamos !important para garantir override sobre classes internas do InputGroup
-    groupStatus: {
-        default: "",
-        error: "!border-border-critical focus-within:!ring-ring-critical",
-        warning: "!border-border-warning focus-within:!ring-ring-warning",
-        completed: "!border-border-success focus-within:!ring-ring-success",
-    }
+    // Override de bordas/focus agora é tratado pelo próprio componente via prop `status`
+    // mantendo objeto vazio ou removendo se preferir, mas index.ts/types podem depender dele se referenciado? 
+    // Como estamos removendo o uso no component.tsx, podemos remover aqui.
+    // Mas para evitar quebra de contrato se houver export, deixamos comentado ou vazio.
+    // Para limpar: removemos completamente.
+
 };

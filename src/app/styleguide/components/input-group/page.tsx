@@ -190,13 +190,26 @@ export default function InputGroupPage() {
                         <div className="space-y-2">
                             <span className="text-caption-sm text-fg-muted">Error State</span>
                             <div className="space-y-1">
-                                <InputGroup aria-invalid="true">
+                                <InputGroup status="error">
                                     <InputGroupAddon>
                                         <Key />
                                     </InputGroupAddon>
                                     <InputGroupInput placeholder="API Key" defaultValue="invalid_token" />
                                 </InputGroup>
                                 <p className="text-caption-sm text-fg-critical">Token inválido</p>
+                            </div>
+                        </div>
+
+                        <div className="space-y-2">
+                            <span className="text-caption-sm text-fg-muted">Warning State</span>
+                            <div className="space-y-1">
+                                <InputGroup status="warning">
+                                    <InputGroupAddon>
+                                        <Key />
+                                    </InputGroupAddon>
+                                    <InputGroupInput placeholder="API Key" defaultValue="expiring_token" />
+                                </InputGroup>
+                                <p className="text-caption-sm text-fg-warning">Token expira em breve</p>
                             </div>
                         </div>
 

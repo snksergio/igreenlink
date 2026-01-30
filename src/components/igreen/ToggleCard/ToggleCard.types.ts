@@ -3,11 +3,11 @@ import { ReactNode, HTMLAttributes } from "react";
 /**
  * Props do componente ToggleCard
  */
-export interface ToggleCardProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange"> {
+export interface ToggleCardProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "title"> {
     /** Título principal */
-    title: string;
+    title: ReactNode;
     /** Descrição opcional */
-    description?: string;
+    description?: ReactNode;
     /** Ícone ilustrativo */
     icon?: ReactNode;
 

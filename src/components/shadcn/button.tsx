@@ -12,6 +12,7 @@ const buttonVariants = cva(
         "transition-colors",
         "border",
         "focus-visible:outline-none focus-visible:ring-ring-primary",
+        "disabled:pointer-events-none disabled:opacity-50",
         "disabled:pointer-events-none disabled:opacity-50"
     ],
     {
@@ -182,7 +183,7 @@ const Button = React.forwardRef<HTMLButtonElement, React.ButtonHTMLAttributes<HT
                     </span>
                 )}
 
-                {!onlyIcon && children}
+                {!onlyIcon && (asChild ? children : <span className="truncate">{children}</span>)}
 
                 {!loading && endIcon && (
                     <span className={cn("shrink-0 flex items-center justify-center", iconSizeClass)}>

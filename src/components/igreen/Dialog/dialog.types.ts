@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { DialogProps as RadixDialogProps } from "@radix-ui/react-dialog";
+import { IconName } from "@/components/igreen/Icon/icon.types";
 
 /**
  * Props do componente Dialog
@@ -16,9 +17,9 @@ export interface DialogProps extends RadixDialogProps {
   description?: string | ReactNode;
 
   /** 
-   * Ícone a ser exibido no cabeçalho 
+   * Nome do ícone a ser exibido no cabeçalho (utiliza o componente Icon)
    */
-  icon?: ReactNode;
+  icon?: IconName;
 
   /** 
    * Controla a exibição / comportamento do botão de fechar (X)

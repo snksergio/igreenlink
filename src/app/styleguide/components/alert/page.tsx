@@ -36,9 +36,49 @@ export default function AlertPage() {
                     />
                 </StyleguideSection>
 
-                <StyleguideSection title="Variantes iGreen">
+                <StyleguideSection title="Uso Simplificado (Props)">
                     <p className="text-body-md-medium text-fg-muted mb-6">
-                        Variantes mapeadas do design system (Figma Node 2617-4223).
+                        Você pode passar o título, descrição e ícone diretamente via props para uma sintaxe mais limpa.
+                    </p>
+                    <StyleguideExample
+                        title="Com Props"
+                        code={`<Alert 
+  variant="warning" 
+  description="Este alerta usa o ícone padrão da variante warning." 
+/>
+
+<Alert 
+  variant="success" 
+  description="Operação realizada com sucesso." 
+/>
+
+<Alert 
+  variant="critical" 
+  description="Erro crítico com ícone personalizado."
+  icon="fill-alert"
+/>`}
+                    >
+                        <div className="flex flex-col gap-4 max-w-[420px]">
+                            <Alert
+                                variant="warning"
+                                description="Este alerta usa o ícone padrão da variante warning."
+                            />
+                            <Alert
+                                variant="success"
+                                description="Operação realizada com sucesso."
+                            />
+                            <Alert
+                                variant="critical"
+                                description="Erro crítico com ícone personalizado."
+                                icon="fill-alert"
+                            />
+                        </div>
+                    </StyleguideExample>
+                </StyleguideSection>
+
+                <StyleguideSection title="Variantes iGreen (Legado/Composto)">
+                    <p className="text-body-md-medium text-fg-muted mb-6">
+                        Variantes mapeadas do design system (Figma Node 2617-4223) usando o padrão de composição (children).
                     </p>
 
                     <StyleguideExample
@@ -128,28 +168,43 @@ export default function AlertPage() {
 
                 <StyleguideSection title="Uso Simplificado (Props)">
                     <p className="text-body-md-medium text-fg-muted mb-6">
-                        Você pode passar o título e a descrição diretamente via props para uma sintaxe mais limpa.
+                        Você pode passar o título, descrição e ícone diretamente via props para uma sintaxe mais limpa.
                     </p>
                     <StyleguideExample
                         title="Com Props"
                         code={`<Alert 
-  variant="warning"
-  description="Este alerta foi construído passando apenas description como propriedade."
->
-  <div data-slot="icon-wrapper" className="flex size-9 items-center justify-center rounded-[var(--radius-sm)] bg-bg-warning shrink-0">
-     <AlertTriangle className="size-[18px] text-white" />
-  </div>
-</Alert>`}
+  variant="warning" 
+  description="Este alerta usa o ícone padrão da variante warning." 
+/>
+
+<Alert 
+  variant="success" 
+  title="Sucesso"
+  description="Operação realizada com sucesso." 
+/>
+
+<Alert 
+  variant="critical" 
+  description="Erro crítico com ícone personalizado."
+  icon="fill-alert"
+/>`}
                     >
-                        <Alert
-                            variant="warning"
-                            description="Este alerta foi construído passando apenas description como propriedade."
-                            className="max-w-[420px]"
-                        >
-                            <div data-slot="icon-wrapper" className="flex size-9 items-center justify-center rounded-[var(--radius-sm)] bg-bg-warning shrink-0">
-                                <AlertTriangle className="size-[18px] text-white" />
-                            </div>
-                        </Alert>
+                        <div className="flex flex-col gap-4 max-w-[420px]">
+                            <Alert
+                                variant="warning"
+                                description="Este alerta usa o ícone padrão da variante warning."
+                            />
+                            <Alert
+                                variant="success"
+                                title="Sucesso"
+                                description="Operação realizada com sucesso."
+                            />
+                            <Alert
+                                variant="critical"
+                                description="Erro crítico com ícone personalizado."
+                                icon="fill-alert"
+                            />
+                        </div>
                     </StyleguideExample>
                 </StyleguideSection>
 
@@ -173,6 +228,12 @@ export default function AlertPage() {
                                 type: "string",
                                 defaultValue: "-",
                                 description: "Descrição do alerta (opcional).",
+                            },
+                            {
+                                prop: "icon",
+                                type: "ReactNode | string",
+                                defaultValue: "Depende da variante",
+                                description: "Ícone personalizado. Se passar string, usa o componente Icon.",
                             },
                         ]}
                     />

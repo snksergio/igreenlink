@@ -20,7 +20,7 @@ export const choiceStyles = {
             description: "text-body-xs-medium text-fg-muted group-hover:text-fg-main transition-colors",
         },
         selectionIndicator: {
-            base: "shrink-0 size-[18px] transition-transform duration-300 ease-out",
+            base: "shrink-0 transition-transform duration-300 ease-out",
             active: "text-fg-primary scale-100",
             inactive: "text-fg-muted scale-95 group-hover:scale-100 group-hover:text-fg-main",
         }

@@ -6,26 +6,22 @@
 
 import React from "react";
 import {
-    Upload,
-    AlertTriangle,
-    Lock,
-    Loader2,
-    CheckCircle2,
     File,
     Camera,
     RefreshCw,
     ArrowRight
 } from "lucide-react";
+import { Icon } from "@/components/igreen/Icon";
 import { FileDropZoneStatus } from "./FileDropZone.types";
 
 // ===== ÍCONES POR STATUS =====
 export const statusIcons: Record<FileDropZoneStatus, React.ReactNode> = {
-    idle: <Upload className="size-full" />,
-    dragging: <Upload className="size-full" />,
-    loading: <Loader2 className="size-full" />,
-    success: <CheckCircle2 className="size-full" />,
-    error: <AlertTriangle className="size-full" />,
-    warning: <Lock className="size-full" />,
+    idle: <Icon name="fill-upload-file" className="size-full" />,
+    dragging: <Icon name="fill-upload-file" className="size-full" />,
+    loading: <Icon name="line-loading" className="size-full" />,
+    success: <Icon name="fill-success" className="size-full" />,
+    error: <Icon name="fill-alert" className="size-full" />,
+    warning: <Icon name="fill-lock" className="size-full" />,
 };
 
 // ===== ÍCONES DE BOTÕES =====

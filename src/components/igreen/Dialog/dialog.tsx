@@ -2,7 +2,6 @@
 
 import React from "react";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import {
@@ -14,41 +13,109 @@ import {
     DialogFooter,
 } from "@/components/shadcn/dialog";
 import { Button } from "@/components/shadcn/button";
+import { Icon } from "@/components/igreen/Icon";
 
 import { DialogProps } from "./dialog.types";
 import { dialogStyles } from "./dialog.styles";
 
 /**
- * Botão de fechar customizado reutilizável
+ * Botão de fechar customizado reutilizável.
  */
-const CustomCloseButton = ({ onClick }: { onClick?: () => void }) => {
-    const commonProps = {
-        className: dialogStyles.closeButton.base,
-        "data-igreen-close": "true",
-        children: <X />
-    };
+interface CloseButtonProps {
+    onClick?: () => void;
+}
 
+const CustomCloseButton = ({ onClick }: CloseButtonProps) => {
+    const icon = <Icon name="line-close" size="lg" />;
+
+    // Se houver onClick, usamos um button normal para interceptar e executar a lógica antes de fechar (ou não)
     if (onClick) {
         return (
             <button
                 type="button"
                 onClick={onClick}
+                className={dialogStyles.closeButton.base}
+                data-igreen-close="true"
                 aria-label="Close"
-                {...commonProps}
-            />
+            >
+                {icon}
+            </button>
         );
     }
 
+    // Caso contrário, usamos o DialogPrimitive.Close padrão do Radix
     return (
-        <DialogPrimitive.Close {...commonProps}>
-            {commonProps.children}
+        <DialogPrimitive.Close
+            className={dialogStyles.closeButton.base}
+            data-igreen-close="true"
+        >
+            {icon}
             <span className="sr-only">Close</span>
         </DialogPrimitive.Close>
     );
 };
 
+// Extracted Action Buttons for cleaner render
+interface ActionButtonsProps {
+    onCancel?: boolean | (() => void);
+    cancelText?: string;
+    onConfirm?: boolean | (() => void);
+    confirmText?: string;
+    loading?: boolean;
+}
+
+const DialogActionButtons: React.FC<ActionButtonsProps> = ({
+    onCancel,
+    cancelText = "Cancelar",
+    onConfirm,
+    confirmText = "Confirmar",
+    loading
+}) => {
+    return (
+        <>
+            {/* Cancel Button */}
+            {onCancel && (
+                typeof onCancel === 'boolean' ? (
+                    <DialogPrimitive.Close asChild>
+                        <Button
+                            variant="default"
+                            color="secondary"
+                            className={dialogStyles.actionButton}
+                            disabled={loading}
+                        >
+                            {cancelText}
+                        </Button>
+                    </DialogPrimitive.Close>
+                ) : (
+                    <Button
+                        variant="default"
+                        color="secondary"
+                        className={dialogStyles.actionButton}
+                        disabled={loading}
+                        onClick={onCancel}
+                    >
+                        {cancelText}
+                    </Button>
+                )
+            )}
+
+            {/* Confirm Button */}
+            {onConfirm && (
+                <Button
+                    variant="default"
+                    className={dialogStyles.actionButton}
+                    disabled={loading}
+                    onClick={typeof onConfirm === 'function' ? onConfirm : undefined}
+                >
+                    {loading ? "Carregando..." : confirmText}
+                </Button>
+            )}
+        </>
+    );
+};
+
 /**
- * Componente Dialog personalizado do iGreen
+ * Componente Dialog personalizado do iGreen.
  * Wrapper sobre o Dialog do Shadcn/Radix com estilos e comportamentos específicos.
  */
 export const DialogComponent: React.FC<DialogProps> = ({
@@ -66,47 +133,7 @@ export const DialogComponent: React.FC<DialogProps> = ({
     width,
     ...props
 }) => {
-
-    // Helper para renderizar botões de footer
-    const renderFooterButton = (
-        action: boolean | (() => void) | undefined,
-        text: string,
-        variant: "default" | "soft",
-        color?: "secondary",
-        isClose?: boolean
-    ) => {
-        if (!action) return null;
-
-        const btnProps = {
-            variant,
-            color,
-            className: dialogStyles.actionButton,
-            type: "button" as const,
-            disabled: loading && variant !== "soft" // Disable confirm on loading
-        };
-
-        const content = loading && variant !== "soft" ? "Carregando..." : text;
-
-        if (action === true) {
-            // Se for apenas true, e é "cancel" (isClose), wrap em DialogPrimitive.Close
-            if (isClose) {
-                return (
-                    <DialogPrimitive.Close asChild>
-                        <Button {...btnProps}>{content}</Button>
-                    </DialogPrimitive.Close>
-                );
-            }
-            // Se for confirm (não close) e true, apenas botão (raro)
-            return <Button {...btnProps}>{content}</Button>;
-        }
-
-        // Se for função
-        return (
-            <Button {...btnProps} onClick={action}>
-                {content}
-            </Button>
-        );
-    };
+    const handleCloseButton = typeof onCloseButton === "function" ? onCloseButton : undefined;
 
     return (
         <Dialog {...props}>
@@ -120,16 +147,14 @@ export const DialogComponent: React.FC<DialogProps> = ({
             >
                 {/* Close Button Logic */}
                 {onCloseButton !== false && (
-                    <CustomCloseButton
-                        onClick={typeof onCloseButton === "function" ? onCloseButton : undefined}
-                    />
+                    <CustomCloseButton onClick={handleCloseButton} />
                 )}
 
                 <DialogHeader className={dialogStyles.header.container}>
                     {icon && (
                         <div className={dialogStyles.icon.wrapper}>
                             <div className={dialogStyles.icon.inner}>
-                                {icon}
+                                <Icon name={icon} size="24px" />
                             </div>
                         </div>
                     )}
@@ -154,8 +179,13 @@ export const DialogComponent: React.FC<DialogProps> = ({
 
                 {(onCancel || onConfirm) && (
                     <DialogFooter className={dialogStyles.footer.base}>
-                        {renderFooterButton(onCancel, cancelText, "default", "secondary", true)}
-                        {renderFooterButton(onConfirm, confirmText, "default", undefined, false)}
+                        <DialogActionButtons
+                            onCancel={onCancel}
+                            cancelText={cancelText}
+                            onConfirm={onConfirm}
+                            confirmText={confirmText}
+                            loading={loading}
+                        />
                     </DialogFooter>
                 )}
             </DialogContent>

@@ -27,4 +27,9 @@ export interface AccordionSelectProps {
      * Additional CSS classes.
      */
     className?: string;
+
+    /**
+     * Whether the component is disabled.
+     */
+    disabled?: boolean;
 }

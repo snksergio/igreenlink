@@ -10,7 +10,19 @@ export const dialogStyles = {
 
     // ===== CONTAINER DE CONTEÚDO =====
     content: {
-        base: "fixed left-[50%] top-[50%] z-50 grid w-full min-w-[550px] max-w-[550px] translate-x-[-50%] translate-y-[-50%] bg-bg-surface px-9 py-10 shadows-boxshadow-xl rounded-xl border border-border duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] gap-[32px] sm:rounded-xl",
+        base: "fixed left-0 top-auto bottom-0 z-50 grid w-full max-w-none translate-x-0 translate-y-0 " +
+            "gap-6 sm:gap-8 bg-bg-surface p-7 sm:px-9 sm:py-10 shadow-lg " +
+            // Configurações de Animação (Slide Up no Mobile)
+            "duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out " +
+            "data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 " +
+            "data-[state=open]:slide-in-from-bottom-full data-[state=closed]:slide-out-to-bottom-full " +
+            // Estilo Visual & Layout Flex para Scroll
+            "rounded-t-[24px] rounded-b-none border-t border-border focus-visible:outline-none flex flex-col max-h-[85vh] sm:max-h-[80vh] " +
+            // Breakpoints Desktop (Mantendo sua lógica intacta)
+            "sm:left-[50%] sm:top-[50%] sm:bottom-auto sm:w-full sm:max-w-[550px] " +
+            "sm:translate-x-[-50%] sm:translate-y-[-50%] sm:rounded-xl sm:border " +
+            "sm:data-[state=closed]:slide-out-to-top-[48%] sm:data-[state=open]:slide-in-from-top-[48%] " +
+            "sm:data-[state=closed]:zoom-out-95 sm:data-[state=open]:zoom-in-95",
     },
 
     // ===== HEADER =====
@@ -29,7 +41,7 @@ export const dialogStyles = {
 
     // ===== CLOSE BUTTON =====
     closeButton: {
-        base: "absolute top-8 right-8 rounded-sm disabled:pointer-events-none text-fg-main [&_svg]:size-[24px]",
+        base: "absolute top-8 right-8 rounded-sm disabled:pointer-events-none text-fg-main hover:text-fg-strong transition-colors",
     },
 
     // ===== FOOTER =====
@@ -38,7 +50,7 @@ export const dialogStyles = {
     },
 
     // ===== CONTENT WRAPPER =====
-    contentWrapper: "w-full",
+    contentWrapper: "w-full overflow-y-auto flex-1 min-h-0",
 
     // ===== BUTTONS =====
     actionButton: "w-full",

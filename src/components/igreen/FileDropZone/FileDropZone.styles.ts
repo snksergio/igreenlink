@@ -32,13 +32,13 @@ export const fileDropZoneStyles = {
         status: {
             idle: "bg-bg-primary text-fg-on-primary",
             dragging: "bg-bg-primary text-fg-on-primary",
-            loading: "bg-bg-muted text-fg-muted",
+            loading: "bg-bg-fill text-fg-on-dark",
             success: "bg-bg-success text-fg-on-success",
             error: "bg-bg-critical text-fg-on-critical",
             warning: "bg-bg-warning text-fg-on-warning",
         } as Record<FileDropZoneStatus, string>,
 
-        icon: "size-6",
+        icon: "size-6 flex items-center justify-center",
         spinner: "animate-spin",
     },
 

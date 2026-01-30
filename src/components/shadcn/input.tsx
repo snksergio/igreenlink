@@ -10,7 +10,7 @@ export interface InputProps
 }
 
 const inputVariants = cva(
-    "flex w-full border bg-bg-surface px-4 text-body-lg-medium text-fg-strong transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-fg-muted focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+    "flex w-full border bg-bg-surface px-4 text-body-lg-medium text-fg-strong transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-fg-subtle focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50",
     {
         variants: {
             status: {

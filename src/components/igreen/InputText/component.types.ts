@@ -1,4 +1,5 @@
 import { ComponentProps, ReactNode } from "react";
+import { IconName } from "@/components/igreen/Icon";
 
 export type InputTextStatus = "default" | "error" | "warning" | "completed";
 
@@ -28,12 +29,12 @@ export interface InputTextProps extends Omit<ComponentProps<"input">, "size"> {
     /**
      * Ícone ou elemento à esquerda
      */
-    startIcon?: ReactNode;
+    startIcon?: ReactNode | IconName;
 
     /**
      * Ícone ou elemento à direita
      */
-    endIcon?: ReactNode;
+    endIcon?: ReactNode | IconName;
 
     /**
      * Se verdadeiro, exibe um spinner de carregamento no final

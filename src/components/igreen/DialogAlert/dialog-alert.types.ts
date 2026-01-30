@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { DialogProps } from "@radix-ui/react-dialog";
+import { IconName } from "@/components/igreen/Icon/icon.types";
 
 export type DialogAlertVariant = "default" | "warning" | "critical";
 
@@ -53,7 +54,7 @@ export interface DialogAlertProps extends DialogProps {
     /**
      * Icon to display in the header
      */
-    icon?: ReactNode;
+    icon?: IconName;
 
     /**
      * Additional CSS classes

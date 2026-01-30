@@ -129,13 +129,13 @@ export default function InputTextPage() {
                             <h3 className="text-body-md-semibold text-fg-strong">Ícones e Loading</h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <InputText
-                                    label="Com Start Icon"
+                                    label="Com Start Icon (Node)"
                                     startIcon={<Mail />}
                                     placeholder="usuario@email.com"
                                 />
                                 <InputText
-                                    label="Com End Icon"
-                                    endIcon={<Search />}
+                                    label="Com End Icon (String)"
+                                    endIcon="fill-search"
                                     placeholder="Buscar..."
                                 />
                                 <InputText
@@ -153,8 +153,8 @@ export default function InputTextPage() {
                             </div>
                             <div className="p-4 bg-bg-muted rounded-md mt-4 border border-border">
                                 <code className="text-caption-sm font-mono text-fg-muted block whitespace-pre">
-                                    {`<InputText label="Start Icon" startIcon={<Mail />} />
-<InputText label="End Icon" endIcon={<Search />} />
+                                    {`<InputText label="Start Icon (Node)" startIcon={<Mail />} />
+<InputText label="End Icon (String)" endIcon="fill-search" />
 <InputText label="Loading" isLoading startIcon={<Lock />} />`}
                                 </code>
                             </div>
@@ -254,10 +254,22 @@ export default function InputTextPage() {
                                     <td className="px-6 py-4 text-body-sm-medium text-fg-muted">Define o estado visual e semântico.</td>
                                 </tr>
                                 <tr>
+                                    <td className="px-6 py-4"><code className="text-fg-primary">startIcon</code></td>
+                                    <td className="px-6 py-4"><code className="text-caption-md">ReactNode | string</code></td>
+                                    <td className="px-6 py-4">-</td>
+                                    <td className="px-6 py-4 text-body-sm-medium text-fg-muted">Ícone ou elemento renderizado à esquerda. Pode ser um componente ou nome do ícone (string).</td>
+                                </tr>
+                                <tr>
+                                    <td className="px-6 py-4"><code className="text-fg-primary">endIcon</code></td>
+                                    <td className="px-6 py-4"><code className="text-caption-md">ReactNode | string</code></td>
+                                    <td className="px-6 py-4">-</td>
+                                    <td className="px-6 py-4 text-body-sm-medium text-fg-muted">Ícone ou elemento renderizado à direita. Pode ser um componente ou nome do ícone (string).</td>
+                                </tr>
+                                <tr>
                                     <td className="px-6 py-4"><code className="text-fg-primary">isLoading</code></td>
                                     <td className="px-6 py-4"><code className="text-caption-md">boolean</code></td>
                                     <td className="px-6 py-4"><code>false</code></td>
-                                    <td className="px-6 py-4 text-body-sm-medium text-fg-muted">Exibe um spinner no final do campo.</td>
+                                    <td className="px-6 py-4 text-body-sm-medium text-fg-muted">Exibe um ícone de carregamento automático no final do campo.</td>
                                 </tr>
                                 <tr>
                                     <td className="px-6 py-4"><code className="text-fg-primary">size</code></td>

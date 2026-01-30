@@ -9,36 +9,42 @@ import { Input, type InputProps } from "@/components/shadcn/input"
 import { Textarea } from "@/components/shadcn/textarea"
 
 const inputGroupVariants = cva(
-  "group/input-group relative flex w-full items-center border border-border bg-bg-surface shadow-shadows-boxshadow-sm transition-[color,box-shadow,border-color] outline-none min-w-0 has-[>textarea]:h-auto ",
+  "group/input-group relative flex w-full items-center border bg-bg-surface shadow-shadows-boxshadow-sm transition-[color,box-shadow,border-color] outline-none min-w-0 has-[>textarea]:h-auto",
   {
     variants: {
       size: {
         default: "h-form-lg rounded-base",
         md: "h-form-md rounded-base",
-        sm: "h-form-sm rounded-base", // Usually sm has tighter radius
+        sm: "h-form-sm rounded-base",
       },
+      status: {
+        default: "border-border has-[[data-slot=input-group-control]:focus-visible]:border-border-primary has-[[data-slot=input-group-control]:focus-visible]:ring-base has-[[data-slot=input-group-control]:focus-visible]:ring-ring-primary",
+        error: "border-border-critical has-[[data-slot=input-group-control]:focus-visible]:ring-base has-[[data-slot=input-group-control]:focus-visible]:ring-ring-critical",
+        warning: "border-border-warning has-[[data-slot=input-group-control]:focus-visible]:ring-base has-[[data-slot=input-group-control]:focus-visible]:ring-ring-warning",
+        success: "border-border-success has-[[data-slot=input-group-control]:focus-visible]:ring-base has-[[data-slot=input-group-control]:focus-visible]:ring-ring-success",
+        completed: "border-border-success has-[[data-slot=input-group-control]:focus-visible]:ring-base has-[[data-slot=input-group-control]:focus-visible]:ring-ring-success",
+      }
     },
     defaultVariants: {
       size: "default",
+      status: "default"
     },
   }
 )
 
 interface InputGroupProps extends React.ComponentProps<"div">, VariantProps<typeof inputGroupVariants> { }
 
-function InputGroup({ className, size, ...props }: InputGroupProps) {
+function InputGroup({ className, size, status, ...props }: InputGroupProps) {
   return (
     <div
       data-slot="input-group"
+      data-status={status}
       role="group"
       className={cn(
-        inputGroupVariants({ size }),
+        inputGroupVariants({ size, status }),
         // Padding logic is handled in InputGroupInput via group-has modifiers
         "has-[>[data-align=block-start]]:h-auto has-[>[data-align=block-start]]:flex-col has-[>[data-align=block-start]]:[&>input]:pb-3",
         "has-[>[data-align=block-end]]:h-auto has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-end]]:[&>input]:pt-3",
-
-        // Focus state (Matching Input focus)
-        "has-[[data-slot=input-group-control]:focus-visible]:border-border-primary has-[[data-slot=input-group-control]:focus-visible]:ring-base has-[[data-slot=input-group-control]:focus-visible]:ring-ring-primary",
 
         className
       )}
@@ -48,7 +54,7 @@ function InputGroup({ className, size, ...props }: InputGroupProps) {
 }
 
 const inputGroupAddonVariants = cva(
-  "text-fg-muted flex h-full cursor-text items-center justify-center gap-2 px-3 text-body-sm-medium select-none [&>svg:not([class*='size-'])]:size-[18px] [&>kbd]:rounded-sm group-data-[disabled=true]/input-group:opacity-50",
+  "text-fg-muted flex h-full cursor-text items-center justify-center gap-2 px-3 text-body-sm-medium select-none [&>svg:not([class*='size-'])]:size-[18px] [&>kbd]:rounded-sm group-data-[disabled=true]/input-group:opacity-50 group-data-[status=error]/input-group:text-fg-critical group-data-[status=warning]/input-group:text-fg-warning group-data-[status=success]/input-group:text-fg-success group-data-[status=completed]/input-group:text-fg-success",
   {
     variants: {
       align: {
@@ -129,7 +135,7 @@ function InputGroupText({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
       className={cn(
-        "text-fg-muted flex items-center gap-2 px-3 text-body-sm-medium [&_svg:not([class*='size-'])]:size-[18px]",
+        "text-fg-muted flex items-center gap-2 px-3 text-body-sm-medium [&_svg:not([class*='size-'])]:size-[18px] group-data-[status=error]/input-group:text-fg-critical group-data-[status=warning]/input-group:text-fg-warning group-data-[status=success]/input-group:text-fg-success group-data-[status=completed]/input-group:text-fg-success",
         className
       )}
       {...props}

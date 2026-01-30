@@ -5,3 +5,4 @@ export * from "./Choice";
 export * from "./InputText";
 export * from "./FileDropZone";
 export * from "./ToggleCard";
+export * from "./ProgressCard";

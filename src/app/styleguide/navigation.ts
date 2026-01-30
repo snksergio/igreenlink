@@ -137,6 +137,11 @@ export const navigation: NavSection[] = [
                 href: "/styleguide/components/dialog",
                 badge: "iGreen"
             },
+            {
+                name: "Progress Card",
+                href: "/styleguide/components/progress-card",
+                badge: "iGreen"
+            },
 
             // Navigation & Display
             {

@@ -1,2 +1,2 @@
-export * from "./component";
-export * from "./component.types";
+export * from "./choice";
+export * from "./choice.types";

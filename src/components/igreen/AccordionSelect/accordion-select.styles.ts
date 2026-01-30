@@ -1,6 +1,9 @@
 export const accordionSelectStyles = {
     // Main container (list wrapper)
-    root: "flex flex-col w-full bg-bg-surface rounded-base overflow-hidden border border-border-muted",
+    root: {
+        base: "flex flex-col w-full bg-bg-surface rounded-base overflow-hidden border border-border-muted",
+        disabled: "opacity-50 pointer-events-none",
+    },
 
     // Item container (row)
     item: {

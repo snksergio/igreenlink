@@ -3,52 +3,47 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { ChevronRight, Pencil } from "lucide-react";
 import { AccordionSelectProps } from "./accordion-select.types";
 import { accordionSelectStyles } from "./accordion-select.styles";
+import { AccordionSelectList, AccordionSelectedItem } from "./accordion-select.parts";
 
 export function AccordionSelect({
     options,
     value,
     onValueChange,
     className,
+    disabled = false,
 }: AccordionSelectProps) {
-    const selectedOption = options.find((opt) => opt.id === value);
+    const selectedOption = React.useMemo(
+        () => options.find((opt) => opt.id === value),
+        [options, value]
+    );
+
     const isExpanded = !value;
 
+    const handleSelect = React.useCallback((id: string) => {
+        if (!disabled) {
+            onValueChange(id);
+        }
+    }, [disabled, onValueChange]);
+
+    const handleClear = React.useCallback(() => {
+        if (!disabled) {
+            onValueChange(undefined);
+        }
+    }, [disabled, onValueChange]);
+
     return (
-        <div className={cn(accordionSelectStyles.root, className)}>
+        <div className={cn(accordionSelectStyles.root.base, className, disabled && accordionSelectStyles.root.disabled)}>
             {/* Expanded List View */}
             <div
                 className={cn(
                     accordionSelectStyles.animation.wrapper,
                     isExpanded ? accordionSelectStyles.animation.expanded : accordionSelectStyles.animation.collapsed
                 )}
+                aria-hidden={!isExpanded}
             >
-                <div className={accordionSelectStyles.animation.inner}>
-                    <div className={accordionSelectStyles.animation.list}>
-                        {options.map((option) => (
-                            <div
-                                key={option.id}
-                                className={accordionSelectStyles.item.base}
-                                onClick={() => onValueChange(option.id)}
-                            >
-                                <div className={accordionSelectStyles.content.wrapper}>
-                                    <div className={accordionSelectStyles.iconWrapper.base}>
-                                        {option.icon}
-                                    </div>
-                                    <div className={accordionSelectStyles.text.wrapper}>
-                                        <span className={accordionSelectStyles.text.title}>{option.title}</span>
-                                        <span className={accordionSelectStyles.text.description}>{option.description}</span>
-                                    </div>
-                                </div>
-                                <div className={accordionSelectStyles.action.wrapper}>
-                                    <ChevronRight className={accordionSelectStyles.action.icon} />
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <AccordionSelectList options={options} onSelect={handleSelect} />
             </div>
 
             {/* Selected Item View */}
@@ -57,33 +52,11 @@ export function AccordionSelect({
                     accordionSelectStyles.animation.wrapper,
                     !isExpanded ? accordionSelectStyles.animation.expanded : accordionSelectStyles.animation.collapsed
                 )}
+                aria-hidden={isExpanded}
             >
-                <div className={accordionSelectStyles.animation.inner}>
-                    {selectedOption && (
-                        <div className={cn(accordionSelectStyles.item.base, accordionSelectStyles.item.selectedView)}>
-                            <div className={accordionSelectStyles.content.wrapper}>
-                                <div className={accordionSelectStyles.iconWrapper.base}>
-                                    {selectedOption.icon}
-                                </div>
-                                <div className={accordionSelectStyles.text.wrapper}>
-                                    <span className={accordionSelectStyles.text.title}>{selectedOption.title}</span>
-                                    <span className={accordionSelectStyles.text.description}>{selectedOption.description}</span>
-                                </div>
-                            </div>
-                            <div
-                                className={accordionSelectStyles.action.editWrapper}
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    onValueChange(undefined);
-                                }}
-                                role="button"
-                                aria-label="Edit selection"
-                            >
-                                <Pencil className={accordionSelectStyles.action.icon} />
-                            </div>
-                        </div>
-                    )}
-                </div>
+                {selectedOption && (
+                    <AccordionSelectedItem option={selectedOption} onClear={handleClear} />
+                )}
             </div>
         </div>
     );
