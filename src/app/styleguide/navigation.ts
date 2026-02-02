@@ -142,6 +142,11 @@ export const navigation: NavSection[] = [
                 href: "/styleguide/components/progress-card",
                 badge: "iGreen"
             },
+            {
+                name: "Stepper Progress",
+                href: "/styleguide/components/stepper-progress",
+                badge: "iGreen"
+            },
 
             // Navigation & Display
             {
@@ -158,6 +163,21 @@ export const navigation: NavSection[] = [
                 badge: "iGreen"
             },
 
+        ]
+    },
+    {
+        title: "Template Components",
+        items: [
+            {
+                name: "Screen Steppers",
+                href: "/styleguide/components/screen-steppers",
+                badge: "iGreen"
+            },
+            {
+                name: "Screen Step",
+                href: "/styleguide/components/screen-step",
+                badge: "iGreen"
+            },
         ]
     },
     {
