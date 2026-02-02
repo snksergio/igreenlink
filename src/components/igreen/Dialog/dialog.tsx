@@ -131,6 +131,7 @@ export const DialogComponent: React.FC<DialogProps> = ({
     loading = false,
     className,
     width,
+    fullHeight = false,
     ...props
 }) => {
     const handleCloseButton = typeof onCloseButton === "function" ? onCloseButton : undefined;
@@ -140,6 +141,7 @@ export const DialogComponent: React.FC<DialogProps> = ({
             <DialogContent
                 className={cn(
                     dialogStyles.content.base,
+                    fullHeight && dialogStyles.content.fullHeight,
                     dialogStyles.hideDefaultClose,
                     className
                 )}

@@ -75,4 +75,10 @@ export interface DialogProps extends RadixDialogProps {
    * Por padrão segue o design system (550px)
    */
   width?: string;
+
+  /**
+   * Define altura máxima como 100vh no mobile (útil para formulários longos)
+   * @default false
+   */
+  fullHeight?: boolean;
 }

@@ -10,7 +10,7 @@ export const dialogStyles = {
 
     // ===== CONTAINER DE CONTEÚDO =====
     content: {
-        base: "fixed left-0 top-auto bottom-0 z-50 grid w-full max-w-none translate-x-0 translate-y-0 " +
+        base: "fixed left-0 top-auto bottom-0 z-50 grid w-full max-w-none translate-x-0 translate-y-0 position-relative" +
             "gap-6 sm:gap-8 bg-bg-surface p-7 sm:px-9 sm:py-10 shadow-lg " +
             // Configurações de Animação (Slide Up no Mobile)
             "duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out " +
@@ -23,6 +23,8 @@ export const dialogStyles = {
             "sm:translate-x-[-50%] sm:translate-y-[-50%] sm:rounded-xl sm:border " +
             "sm:data-[state=closed]:slide-out-to-top-[48%] sm:data-[state=open]:slide-in-from-top-[48%] " +
             "sm:data-[state=closed]:zoom-out-95 sm:data-[state=open]:zoom-in-95",
+        /** Full height variant - 100vh on mobile */
+        fullHeight: "max-h-[100vh] sm:max-h-[80vh] rounded-none sm:rounded-xl",
     },
 
     // ===== HEADER =====
@@ -35,7 +37,7 @@ export const dialogStyles = {
 
     // ===== ÍCONE =====
     icon: {
-        wrapper: "flex items-center justify-center shrink-0 size-[52px] rounded-sm bg-bg-primary-subtle",
+        wrapper: "hidden md:flex items-center justify-center shrink-0 size-[52px] rounded-sm bg-bg-primary-subtle",
         inner: "size-6 flex items-center justify-center text-fg-primary [&_svg]:size-full",
     },
 

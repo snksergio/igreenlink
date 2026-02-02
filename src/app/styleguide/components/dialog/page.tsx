@@ -263,7 +263,7 @@ export default function DialogPage() {
                                 prop: "icon",
                                 type: "IconName",
                                 defaultValue: "-",
-                                description: "Nome do ícone exibido à esquerda do cabeçalho (ex: 'fill-pin')"
+                                description: "Nome do ícone exibido à esquerda do cabeçalho (ex: 'fill-pin'). Oculto no mobile."
                             },
                             {
                                 prop: "onCloseButton",
@@ -294,6 +294,12 @@ export default function DialogPage() {
                                 type: "string",
                                 defaultValue: "-",
                                 description: "Largura personalizada (ex: '800px')"
+                            },
+                            {
+                                prop: "fullHeight",
+                                type: "boolean",
+                                defaultValue: "false",
+                                description: "Expande o dialog para 100vh no mobile (útil para formulários longos)"
                             },
                         ]}
                     />
